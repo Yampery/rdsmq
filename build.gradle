@@ -1,0 +1,51 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.9.RELEASE'
+	}
+	repositories {
+		maven {
+			url("http://maven.aliyun.com/nexus/content/groups/public/")
+		}
+		maven {
+			url("http://repository.sonatype.org/content/groups/public/")
+		}
+		maven {
+			url("https://repo1.maven.org/maven2/")
+		}
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'git.yampery'
+version = '1.0.0'
+sourceCompatibility = 1.8
+
+repositories {
+	maven {
+		url("http://maven.aliyun.com/nexus/content/groups/public/")
+	}
+	maven {
+		url("http://repository.sonatype.org/content/groups/public/")
+	}
+	maven {
+		url("https://repo1.maven.org/maven2/")
+	}
+	maven {
+		url("https://artifacts.elastic.co/maven")
+	}
+	mavenLocal()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-redis')
+	compile('com.alibaba:fastjson:1.2.8')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
